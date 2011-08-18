@@ -86,8 +86,10 @@ def("SetupWorkspace")({
 
 
 		$("#navigator").css("height", $("#navigator").css("width"));
+		$("body").css("fontSize", $(window).width() * 0.01 );
 		$(window).resize(function(){
 			$("#navigator").css("height", $("#navigator").css("width"));
+			$("body").css("fontSize", $(window).width() * 0.01 );
 		});
 
 		$(".navImgclick").click(function(){
