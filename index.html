@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>2 by 2 Demo</title>
+
+	<script type="text/javascript" src="def.js"></script>
+	<script type="text/javascript" src="jquery-1.6.min.js"></script>
+	<script type="text/javascript" src="jquery.hotkeys.js"></script>	
+	
+	
+	<link type="text/css" href="default.css" rel="stylesheet" />
+	<script type="text/javascript" src="SetupWorkspace.js"></script>
+	<link type="text/css" href="SetupWorkspace.css" rel="stylesheet" />
+	
+	<script type="text/javascript">
+		
+	
+		$(function(){
+		
+			var Workspace = new SetupWorkspace("maincontainer");
+		});
+	
+	</script>
+
+ </head>
+<body>
+
+
+
+
+<div id="maincontainer">
+	<div id="firstcontainer" class="container first">
+	<p>Hello 1</p>
+	</div>
+
+
+	<div id="secondcontainer" class="container second">
+	<p>Hello 2</p>
+	</div>
+
+	<div id="thirdcontainer" class="container third">
+	<p>Hello 3</p>
+	</div>
+
+
+	<div id="forthcontainer" class="container forth">
+	<p>Hello 4</p>
+	</div>
+
+</div>
+
+<div id="navigator" style="position: absolute; left: 1%; top: 3%; width: 10%;" >
+	<img id="navigator-left" class="navImgclick" src="nav/1.png" style="position: absolute; width: 30%; top: 30%;">
+	<img id="navigator-right" class="navImgclick" src="nav/2.png" style="position: absolute; width: 30%; left: 60%; top: 30%;">
+	<img id="navigator-top" class="navImgclick" src="nav/3.png" style="position: absolute; width: 30%; left: 30%;">
+	<img id="navigator-bottom" class="navImgclick" src="nav/4.png" style="position: absolute; width: 30%; top: 60%; left: 30%;">
+	<img id="navigator-center" class="navImgclick" src="nav/5.png" style="position: absolute; width: 30%; left: 30%; top: 30%;">
+</div>
+
+<div>
+	<audio id='clickaudio' src='audio/ClickSound.ogg'></audio>
+</div>
+
+</body>
+</html>

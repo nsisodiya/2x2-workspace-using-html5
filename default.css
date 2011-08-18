@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "Droid Serif Regular";
+    src: url(DroidSerif-Regular.ttf);
+}
+
+body {
+	/*font: 16px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;*/
+	font-family: "Droid Serif Regular";
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0px; top: 0px;
+	background: none repeat scroll 0 0 #777788;
+}
+
+
+
