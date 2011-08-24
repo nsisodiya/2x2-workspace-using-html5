@@ -132,7 +132,7 @@ def("SetupWorkspace")({
 			this.CurrentWorkSpace = 3;
 			break;
 		}//switch
-				console.log("old -> " + this.OldWorkSpace + " new -> " + this.CurrentWorkSpace );
+				//console.log("old -> " + this.OldWorkSpace + " new -> " + this.CurrentWorkSpace );
 
 	},
 
@@ -153,7 +153,7 @@ def("SetupWorkspace")({
 			this.CurrentWorkSpace = 4;
 			break;
 		}//switch
-				console.log("old -> " + this.OldWorkSpace + " new -> " + this.CurrentWorkSpace );
+				//console.log("old -> " + this.OldWorkSpace + " new -> " + this.CurrentWorkSpace );
 	},
 
 	KeyUp : function (){
@@ -173,7 +173,7 @@ def("SetupWorkspace")({
 			this.CurrentWorkSpace = 2;
 			break;
 		}//switch
-				console.log("old -> " + this.OldWorkSpace + " new -> " + this.CurrentWorkSpace );
+				//console.log("old -> " + this.OldWorkSpace + " new -> " + this.CurrentWorkSpace );
 	},
 
 	KeyDown : function (){
@@ -194,7 +194,7 @@ def("SetupWorkspace")({
 			break;
 		}//switch
 		
-		console.log("old -> " + this.OldWorkSpace + " new -> " + this.CurrentWorkSpace );
+		//console.log("old -> " + this.OldWorkSpace + " new -> " + this.CurrentWorkSpace );
 	},
 
 	ShowWorkSpace : function (num){
