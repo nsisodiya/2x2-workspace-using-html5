@@ -12,6 +12,7 @@ def("SetupWorkspace")({
 		this.positionV = "top"
 
 		this.CurrentWorkSpace = 1 ;
+		this.OldWorkSpace = 1 ;
 
 
 		this.WorkspaceID = {
@@ -29,26 +30,12 @@ def("SetupWorkspace")({
 		$(document).bind('keydown', 'down',function (evt){	self.KeyDown();	});
 	
 	
-		$(document).bind('keydown', 'Shift+up', function (evt){
-		  	self.ShowWorkSpace(1);
-		  	self.container.addClass("zoomed");
-		  	self.container.css("overflow","visible");
+		$(document).bind('keydown', 'Shift+up',function (evt){	self.ZoomWorkspace();	});
+		 
 		
-
-		});
+		$(document).bind('keydown', 'Shift+down',function (evt){ self.UnzoomWorkspace();});
 		
-		$(document).bind('keydown', 'Shift+down', function (evt){
 		
-			self.container.removeClass("zoomed") ;
-		
-			//this.container.css("overflow","hidden",1000) ;
-			setTimeout(function(){
-				self.container.css("overflow","hidden");
-			}, 500);
-
-			self.ShowWorkSpace(1);
-		  	
-		});
 	
 	
 		$("#navigator-left").click(function (evt){	self.KeyLeft();	});
@@ -108,8 +95,25 @@ def("SetupWorkspace")({
 		this.ClickSound = $("#clickaudio")[0];
 		
 	},
+	ZoomWorkspace : function (){
+	  	this.ShowWorkSpace(1);
+	  	this.container.addClass("zoomed");
+	  	this.container.css("overflow","visible");
 
+	},
 
+	UnzoomWorkspace : function (){
+		self = this;
+		this.container.removeClass("zoomed") ;
+	
+		//this.container.css("overflow","hidden",1000) ;
+		setTimeout(function(){
+			self.container.css("overflow","hidden");
+		}, 500);
+
+		this.ShowWorkSpace(self.OldWorkSpace);
+	},
+	
 	KeyLeft : function (){
 		if (this.positionH == "right"){
 			$(".container").animate({
@@ -118,6 +122,18 @@ def("SetupWorkspace")({
 			this.positionH = "left";
 			//$(".container").css("left","10%");
 		}
+		
+
+		switch(this.CurrentWorkSpace){
+		case 2 : 
+			this.CurrentWorkSpace = 1;
+			break;
+		case 4 : 
+			this.CurrentWorkSpace = 3;
+			break;
+		}//switch
+				console.log("old -> " + this.OldWorkSpace + " new -> " + this.CurrentWorkSpace );
+
 	},
 
 	KeyRight : function (){
@@ -128,6 +144,16 @@ def("SetupWorkspace")({
 			this.positionH = "right";
 			//$(".container").css("left","-75%");
 		}
+		
+		switch(this.CurrentWorkSpace){
+		case 1 : 
+			this.CurrentWorkSpace = 2;
+			break;
+		case 3 : 
+			this.CurrentWorkSpace = 4;
+			break;
+		}//switch
+				console.log("old -> " + this.OldWorkSpace + " new -> " + this.CurrentWorkSpace );
 	},
 
 	KeyUp : function (){
@@ -138,6 +164,16 @@ def("SetupWorkspace")({
 			this.positionV = "top";
 			//$(".container").css("top","10%");
 		}
+
+		switch(this.CurrentWorkSpace){
+		case 3 : 
+			this.CurrentWorkSpace = 1;
+			break;
+		case 4 : 
+			this.CurrentWorkSpace = 2;
+			break;
+		}//switch
+				console.log("old -> " + this.OldWorkSpace + " new -> " + this.CurrentWorkSpace );
 	},
 
 	KeyDown : function (){
@@ -148,9 +184,21 @@ def("SetupWorkspace")({
 			this.positionV = "bottom";
 			//$(".container").css("top","-75%");
 		}
+
+		switch(this.CurrentWorkSpace){
+		case 1 : 
+			this.CurrentWorkSpace = 3;
+			break;
+		case 2 : 
+			this.CurrentWorkSpace = 4;
+			break;
+		}//switch
+		
+		console.log("old -> " + this.OldWorkSpace + " new -> " + this.CurrentWorkSpace );
 	},
 
 	ShowWorkSpace : function (num){
+		this.OldWorkSpace = this.CurrentWorkSpace;
 		switch(num){
 		case 1 : 
 			this.KeyLeft();
