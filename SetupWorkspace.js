@@ -45,21 +45,10 @@ def("SetupWorkspace")({
 		$("#navigator-center").toggle(
 
 			function (evt){
-				self.container.addClass("zoomed");
-			  	self.container.css("overflow","visible");
-				self.ShowWorkSpace(1);
-
+				self.ZoomWorkspace();
 			},
 			function (evt){
-		
-				self.container.removeClass("zoomed");
-				//this.container.css("overflow","hidden",1000) ;
-				setTimeout(function(){
-					self.container.css("overflow","hidden");
-				}, 1000);
-
-				self.ShowWorkSpace(1);
-			  	
+				self.UnzoomWorkspace();
 			}
 		);
 	
