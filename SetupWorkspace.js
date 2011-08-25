@@ -195,6 +195,7 @@ def("SetupWorkspace")({
 		}//switch
 		
 		//console.log("old -> " + this.OldWorkSpace + " new -> " + this.CurrentWorkSpace );
+		
 	},
 
 	ShowWorkSpace : function (num){
